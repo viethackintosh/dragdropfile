@@ -1,5 +1,5 @@
-import { buildTag } from "../helpers/buildTag.js";
-import  { DragDrop }  from "./dragDrop.js";
+import { buildTag } from "../helpers/buildtag.js";
+import  { DragDrop }  from "../dragdrop/dragDrop.js";
 import { FILE_PDF_ICON, AI_FILE_ICON, DOC_FILE_ICON } from './filesSVGIcon.js';
 
 const UploadFiles = function() {
@@ -39,8 +39,7 @@ const UploadFiles = function() {
         return dragger;
     }
     
-    upFiles.choiceFilesForUpload = ({event}) => {
-    }
+   
     // thay đổi nội dung thông báo trong khung drag
     upFiles.message = ({paramater, drag}) => drag.message.innerHTML = paramater;
     
@@ -274,7 +273,7 @@ const UploadFiles = function() {
     upFiles.getResults = ({tranfer, drag}) => {
         let files = [...tranfer.files];    
         files = drag.result.length !== 0? upFiles.filterFilesWithCondition({
-            srcFiles: drag.result, 
+            srcFiles: drag.result,  
             tarFiles: files, 
             exts: drag.input.accept,
             condition: upFiles.duplicateCondition
